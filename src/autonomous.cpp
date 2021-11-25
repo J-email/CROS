@@ -1,8 +1,22 @@
 #include "main.h"
 //Various definitions of autonomous modes.
 void blue_left_auto(){
-path_gen->setTarget("A");
-path_gen->waitUntilSettled();
+// Move 1 meter to the first goal
+    drive->moveDistance(1_m);
+// Turn 90 degrees to face second goal
+    drive->turnAngle(90_deg);
+// Move 1 meter to the first goal
+    drive->moveDistance(1_m);
+// Turn 90 degrees to face second goal
+    drive->turnAngle(90_deg);
+    // Move 1 meter to the first goal
+    drive->moveDistance(1_m);
+// Turn 90 degrees to face second goal
+    drive->turnAngle(90_deg);
+// Move 1 meter to the first goal
+    drive->moveDistance(1_m);
+// Turn 90 degrees to face second goal
+    drive->turnAngle(90_deg);
 }
 void blue_right_auto(){
 
