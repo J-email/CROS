@@ -15,7 +15,7 @@
 void opcontrol() {
   ControllerButton runAutoButton(ControllerDigital::X);
   while(true){
-      drive->getModel()->arcade(controller.getAnalog(ControllerAnalog::leftY),
-                                controller.getAnalog(ControllerAnalog::rightX));
+      drive->getModel()->arcade(controller.getAnalog(ControllerAnalog::rightX),
+                                controller.getAnalog(ControllerAnalog::leftY));
       pros::delay(10);}
 	}
