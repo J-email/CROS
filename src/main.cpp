@@ -5,7 +5,8 @@ std::shared_ptr<ChassisController> drive =
 				.withMotors({LEFT_WHEEL_1_PORT, LEFT_WHEEL_2_PORT}, {RIGHT_WHEEL_1_PORT, RIGHT_WHEEL_2_PORT})
 				// Green gearset, 4 in wheel diam, 11.5 in wheel track
 				.withDimensions(AbstractMotor::gearset::green, {{WHEEL_DIAMETER, WHEEL_TRACK}, imev5GreenTPR})
-				.withOdometry()
+				.withMaxVoltage(20000)
+                .withOdometry()
 				.buildOdometry();
 
 std::shared_ptr<AsyncMotionProfileController> path_gen =
