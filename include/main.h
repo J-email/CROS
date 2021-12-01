@@ -70,10 +70,10 @@ void autonomous(void);
 void initialize(void);
 void disabled(void);
 void competition_initialize(void);
-void opcontrol(void);
-extern Controller controller;
-extern std::shared_ptr<ChassisController> drive;
-extern std::shared_ptr<AsyncMotionProfileController> path_gen;
+void opcontrol(void); // operator control
+extern Controller controller; // main controller
+extern std::shared_ptr<ChassisController> drive; // chassis
+extern std::shared_ptr<AsyncMotionProfileController> path_gen; //path generator
 #ifdef __cplusplus
 }
 #endif
