@@ -39,7 +39,7 @@ void red_right_auto(){
  * from where it left off.
  */
 void autonomous() {
-    pros::lcd::set_text(1, "Autonomous")
+    pros::lcd::set_text(1, "Autonomous");
     switch(AUTONOMOUS_MODE){
     case 0:
       pros::lcd::set_text(2, "BLUE LEFT");

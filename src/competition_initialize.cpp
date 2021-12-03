@@ -8,7 +8,7 @@
  * This task will exit when the robot is enabled and autonomous or opcontrol
  * starts.
  */
-pros::lcd::register_btn0_cb(on_center_button);
+//pros::lcd::register_btn0_cb(on_center_button);
 void competition_initialize() {
-    pros::lcd::set_text(1, "Competition Initialization")
+    pros::lcd::set_text(1, "Competition Initialization");
 }
