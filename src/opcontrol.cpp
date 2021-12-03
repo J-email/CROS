@@ -30,8 +30,8 @@ void opcontrol() {
     while (true) {
         power = controller.getAnalog(ControllerAnalog::leftY);
         turn = controller.getAnalog(ControllerAnalog::rightX);
-        left = power + turn;
-        right = power - turn;
+        left = power + 0.5 * turn;
+        right = power - 0.5 * turn;
         leftWheels.moveVoltage(analogToVoltage(left));
         rightWheels.moveVoltage(analogToVoltage(right));
         pros::delay(2);
