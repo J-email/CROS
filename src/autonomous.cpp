@@ -1,5 +1,5 @@
 #include "main.h"
-//Various definitions of autonomous modes.
+// Various definitions of autonomous modes.
 void blue_left_auto(){
 // Move 1 meter to the first goal
     drive->moveDistance(1_m);
