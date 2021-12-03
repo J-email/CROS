@@ -1,5 +1,7 @@
 #include "main.h"
 #include <math.h>
+#pragma clang diagnostic push
+#pragma ide diagnostic ignored "EndlessLoop"
 /**
  * Runs the operator control code. This function will be started in its own task
  * with the default priority and stack size whenever the robot is enabled via
@@ -35,3 +37,5 @@ void opcontrol() {
         pros::delay(2);
     }
 }
+
+#pragma clang diagnostic pop
