@@ -9,11 +9,6 @@ std::shared_ptr<ChassisController> drive =
 				// Green gear-set, 4 in wheel diam, 11.5 in wheel track
 				.withDimensions(AbstractMotor::gearset::green, {{WHEEL_DIAMETER, WHEEL_TRACK}, imev5GreenTPR})
 				.withMaxVoltage(VOLTAGE_LIMIT)
-                /*.withGains(
-                        {0, 0, 0}, // Distance controller gains
-                        {0, 0, 0}, // Turn controller gains
-                        {0, 0, 0}  // Angle controller gains (helps drive straight)
-                        )*/
                 .withOdometry()
 				.buildOdometry();
 
