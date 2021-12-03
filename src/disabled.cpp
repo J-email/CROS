@@ -4,4 +4,6 @@
  * the VEX Competition Switch, following either autonomous or opcontrol. When
  * the robot is enabled, this task will exit.
  */
-void disabled() {}
+void disabled() {
+    pros::lcd::set_text(2, "Disabled")
+}

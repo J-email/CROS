@@ -20,6 +20,7 @@ double analogToVoltage(double analog, double maxVoltage = VOLTAGE_LIMIT){
 }
 
 void opcontrol() {
+    pros::lcd::set_text(2, "Manual")
     ControllerButton runAutoButton(ControllerDigital::X);
     leftWheels.setCurrentLimit(4000);
     rightWheels.setCurrentLimit(4000);
