@@ -6,9 +6,9 @@ MotorGroup rightWheels = MotorGroup({RIGHT_WHEEL_1_PORT, RIGHT_WHEEL_2_PORT, RIG
 std::shared_ptr<ChassisController> drive =
 		ChassisControllerBuilder()
 				.withMotors(leftWheels, rightWheels)
-				// Green gearset, 4 in wheel diam, 11.5 in wheel track
+				// Green gear-set, 4 in wheel diam, 11.5 in wheel track
 				.withDimensions(AbstractMotor::gearset::green, {{WHEEL_DIAMETER, WHEEL_TRACK}, imev5GreenTPR})
-				.withMaxVoltage(20000)
+				.withMaxVoltage(VOLTAGE_LIMIT)
                 .withOdometry()
 				.buildOdometry();
 

@@ -14,19 +14,17 @@
  * task, not resume it from where it left off.
  */
 double analogToVoltage(double analog, double maxVoltage = VOLTAGE_LIMIT){
-    double voltage = 0;
-    voltage = analog * maxVoltage;
-    return voltage;
+    return analog * maxVoltage;
 }
 
 void opcontrol() {
     pros::lcd::set_text(1, "Manual Control")
     ControllerButton runAutoButton(ControllerDigital::X);
-    leftWheels.setCurrentLimit(4000);
-    rightWheels.setCurrentLimit(4000);
+    leftWheels.setCurrentLimit(CURRENT_LIMIT);
+    rightWheels.setCurrentLimit(CURRENT_LIMIT);
+    leftWheels.setVoltageLimit(VOLTAGE_LIMIT);
     rightWheels.setVoltageLimit(VOLTAGE_LIMIT);
-    rightWheels.setVoltageLimit(VOLTAGE_LIMIT);
-    int power, turn, left, right;
+    double power, turn, left, right;
     while (true) {
         power = controller.getAnalog(ControllerAnalog::leftY);
         turn = controller.getAnalog(ControllerAnalog::rightX);

@@ -4,6 +4,7 @@
 #define AUTONOMOUS_MODE 0
 
 #define VOLTAGE_LIMIT 20000
+#define CURRENT_LIMIT 4000
 
 //wheels
 #define WHEEL_DIAMETER 4_in
