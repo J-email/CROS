@@ -5,5 +5,5 @@
  * the robot is enabled, this task will exit.
  */
 void disabled() {
-    pros::lcd::set_text(2, "Disabled")
+    pros::lcd::set_text(1, "Disabled")
 }

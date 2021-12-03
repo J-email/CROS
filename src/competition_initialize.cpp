@@ -9,5 +9,5 @@
  * starts.
  */
 void competition_initialize() {
-    pros::lcd::set_text(2, "Competition Initialization")
+    pros::lcd::set_text(1, "Competition Initialization")
 }
