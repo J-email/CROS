@@ -13,9 +13,9 @@
  * operator control task will be stopped. Re-enabling the robot will restart the
  * task, not resume it from where it left off.
  */
-double analogToVoltage(int analog, double maxVoltage = VOLTAGE_LIMIT){
+double analogToVoltage(double analog, double maxVoltage = VOLTAGE_LIMIT){
     double voltage = 0;
-    if (abs(analog) <= 3) voltage = analog / 127.0 * maxVoltage;
+    voltage = analog * maxVoltage;
     return voltage;
 }
 
