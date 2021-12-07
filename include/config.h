@@ -1,5 +1,5 @@
 // version
-#define VERSION 0
+#define VERSION "v0.1.0"
 
 #define AUTONOMOUS_MODE 0
 
