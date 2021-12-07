@@ -67,25 +67,28 @@ void opcontrol() {
         }
 
         if (gearChangeButton.changedToPressed()) {
-            gearChange.set_value(gearChangeExtended);
             gearChangeExtended = !gearChangeExtended;
+            gearChange.set_value(gearChangeExtended);
         }
 
         if (frontWristUpButton.isPressed()) frontWrist.set_value(true);
-        if (frontWristDownButton.isPressed()) frontWrist.set_value(false);
+        else if (frontWristDownButton.isPressed()) frontWrist.set_value(false);
 
         if (backWristUpButton.isPressed()) backWrist.moveVoltage(VOLTAGE_LIMIT);
-        if (backWristDownButton.isPressed()) backWrist.moveVoltage(-1 * VOLTAGE_LIMIT);
+        else if (backWristDownButton.isPressed()) backWrist.moveVoltage(-1 * VOLTAGE_LIMIT);
 
         if (frontHandButton.changedToPressed()) {
-            frontHand.set_value(frontHandClosed);
             frontHandClosed = !frontHandClosed;
+            frontHand.set_value(frontHandClosed);
         }
 
         if (frontWristUpButton.isPressed()) frontWrist.set_value(true);
-        if (frontWristDownButton.isPressed()) frontWrist.set_value(false);
+        else if (frontWristDownButton.isPressed()) frontWrist.set_value(false);
 
-
+        if (backHandButton.changedToPressed()) {
+            backHandClosed = !backHandClosed;
+            backHand.set_value(backHandClosed);
+        }
         leftWheels.moveVoltage(analogToVoltage(left));
         rightWheels.moveVoltage(analogToVoltage(right));
         pros::delay(2);
