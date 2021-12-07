@@ -29,7 +29,6 @@ void opcontrol() {
     double power, turn, left, right;
     pros::lcd::set_text(1, "Manual Control");
     controller.setText(1, 0, "");
-
     ControllerButton brakeButton(ControllerDigital::right);
     ControllerButton gearChangeButton(ControllerDigital::Y);
     ControllerButton ringIntakeButton(ControllerDigital::down);

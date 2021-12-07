@@ -1,11 +1,13 @@
 #include "main.h"
 
-// cVarious definitions of autonomous modes.
+// Various definitions of autonomous modes.
 void blue_left_auto() {
-// Move 1 meter to the first goal
-    drive->moveDistance(1_m);
-// Turn 90 degrees to face second goal
-//    drive->turnAngle(90_deg);
+    // turn 45 degrees and drive approximately 1.4 ft
+    drive->driveToPoint({0_ft, 6_ft});
+    // turn approximately 45 degrees to end up at 90 degrees
+    drive->turnToAngle(90_deg);
+    // turn approximately -90 degrees to face {5_ft, 0_ft} which is to the north of the robot
+    drive->turnToPoint({5_ft, 0_ft});
 }
 
 void blue_right_auto() {
@@ -13,7 +15,28 @@ void blue_right_auto() {
 }
 
 void red_left_auto() {
-
+    // Move forward to the goal
+    drive->driveToPoint({0_ft, 6_ft});
+    // Grab
+    frontHand.set_value(true);
+    // Go back
+    backArm.set_value(true);
+    drive->driveToPoint({0_ft, 3_ft}, true);
+    // Turn & drop the goal
+    drive->turnToPoint({-6_ft, 0_ft});
+    frontHand.set_value(false);
+    // Turn back
+    drive->turnToPoint({-6_ft, 6_ft});
+    // Grab the red one
+    backArm.set_value(true);
+    // Spit rings
+    ringIntake.moveVoltage(VOLTAGE_LIMIT);
+    // while doing that, go forward, grab middle goal
+    drive->driveToPoint({-6_ft, 6_ft});
+    // Grab
+    frontHand.set_value(true);
+    // place down all of them
+    drive->driveToPoint({2_ft, 2_ft}, true);
 }
 
 void red_right_auto() {
@@ -32,6 +55,7 @@ void red_right_auto() {
  * from where it left off.
  */
 void autonomous() {
+    drive->setState({0_in, 0_in, 0_deg});
     pros::lcd::set_text(1, "Autonomous");
     switch (AUTONOMOUS_MODE) {
         case 0:

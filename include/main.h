@@ -75,7 +75,7 @@ extern MotorGroup leftWheels, rightWheels;
 extern Motor ringIntake, backWrist;
 extern pros::ADIDigitalOut frontHand, frontWrist, backHand, backArm, gearChange;
 extern Controller controller; // main controller
-extern std::shared_ptr<ChassisController> drive; // chassis
+extern std::shared_ptr<OdomChassisController> drive; // chassis
 extern std::shared_ptr<AsyncMotionProfileController> path_gen; //path generator
 #ifdef __cplusplus
 }
