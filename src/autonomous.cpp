@@ -54,4 +54,5 @@ void autonomous() {
             pros::lcd::set_text(2, "UNKNOWN AUTONOMOUS MODE");
             break;
     }
+    pros::lcd::clear_line(2);
 }

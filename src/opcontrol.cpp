@@ -27,7 +27,6 @@ void opcontrol() {
     bool backHandClosed = false;
     double power, turn, left, right;
     pros::lcd::set_text(1, "Manual Control");
-    pros::lcd::clear_line(2);
     controller.setText(1, 0, "");
 
     ControllerButton brakeButton(ControllerDigital::L1);
