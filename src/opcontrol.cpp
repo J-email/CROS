@@ -22,6 +22,8 @@ double analogToVoltage(double analog, double maxVoltage = VOLTAGE_LIMIT) {
 }
 
 void opcontrol() {
+    bool gearChangeExtended = true;
+    double power, turn, left, right;
     pros::lcd::set_text(1, "Manual Control");
     pros::lcd::clear_line(2);
     controller.setText(1, 0, "");
@@ -43,7 +45,6 @@ void opcontrol() {
     rightWheels.setCurrentLimit(CURRENT_LIMIT);
     leftWheels.setVoltageLimit(VOLTAGE_LIMIT);
     rightWheels.setVoltageLimit(VOLTAGE_LIMIT);
-    double power, turn, left, right;
     while (true) {
         power = controller.getAnalog(ControllerAnalog::leftY);
         turn = controller.getAnalog(ControllerAnalog::rightX);
@@ -51,15 +52,23 @@ void opcontrol() {
         right = power - 0.5 * turn;
 
         if (brakeButton.isPressed()) {
-            leftWheels.setBrakeMode(brake);
-            rightWheels.setBrakeMode(brake);
+            leftWheels.setBrakeMode(okapi::AbstractMotor::brakeMode::brake);
+            rightWheels.setBrakeMode(okapi::AbstractMotor::brakeMode::brake);
         } else {
-            leftWheels.setBrakeMode(coast);
-            rightWheels.setBrakeMode(coast);
+            leftWheels.setBrakeMode(okapi::AbstractMotor::brakeMode::coast);
+            rightWheels.setBrakeMode(okapi::AbstractMotor::brakeMode::coast);
         }
 
         if (ringIntakeButton.changedToPressed()){
+            if(ringIntake.isStopped()) ringIntake.moveVoltage(VOLTAGE_LIMIT);
+            else ringIntake.moveVelocity(0);
         }
+
+        if (gearChangeButton.changedToPressed()){
+                gearChange.set_value(gearChangeExtended);
+                gearChangeExtended = !gearChangeExtended;
+        }
+
         leftWheels.moveVoltage(analogToVoltage(left));
         rightWheels.moveVoltage(analogToVoltage(right));
         pros::delay(2);

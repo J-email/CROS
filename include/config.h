@@ -23,17 +23,17 @@
 #define RIGHT_WHEEL_3_PORT -6
 
 // Other motors
-#define RING_BELT_PORT -1
+#define RING_INTAKE_PORT -1
 #define BACK_WRIST_PORT -1
 
 // Sensors
 #define VISION_PORT 5
 
 // Pneumatics
-#define FRONT_HAND 1
-#define FRONT_WRIST
-#define BACK_HAND
-#define BACK_ARM
-#define GEAR_CHANGE
+#define FRONT_HAND_PORT 1
+#define FRONT_WRIST_PORT
+#define BACK_HAND_PORT
+#define BACK_ARM_PORT
+#define GEAR_CHANGE_PORT 1
 // R2 ring
 // L: BACK ARM
