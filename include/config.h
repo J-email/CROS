@@ -31,13 +31,9 @@
 
 //pneumatics
 #define BACK_HAND
-#define BACK_LEFT_ARM
-#define BACK_RIGHT_ARM
-#define FRONT_HAND_RIGHT
-#define FRONT_HAND_LEFT
-#define FRONT_WRIST_RIGHT
-#define FRONT_WRIST_LEFT
-#define SPEED_CHANGE_FRONT
-#define SPEED_CHANGE_BACK
+#define BACK_ARM
+#define FRONT_HAND
+#define FRONT_WRIST
+#define SPEED_CHANGE
 //R2 ring
 //L: BACK ARM
