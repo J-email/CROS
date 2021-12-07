@@ -31,9 +31,9 @@
 
 // Pneumatics
 #define FRONT_HAND_PORT 1
-#define FRONT_WRIST_PORT
-#define BACK_HAND_PORT
-#define BACK_ARM_PORT
+#define FRONT_WRIST_PORT 1
+#define BACK_HAND_PORT 1
+#define BACK_ARM_PORT 1
 #define GEAR_CHANGE_PORT 1
 // R2 ring
 // L: BACK ARM

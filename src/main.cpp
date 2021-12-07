@@ -29,5 +29,8 @@ pros::Vision vision(VISION_PORT);
 
 // Pneumatics
 pros::ADIDigitalOut frontHand = pros::ADIDigitalOut(FRONT_HAND_PORT, false);
+pros::ADIDigitalOut frontWrist = pros::ADIDigitalOut(FRONT_WRIST_PORT, false);
+pros::ADIDigitalOut backHand = pros::ADIDigitalOut(BACK_HAND_PORT, false);
+pros::ADIDigitalOut backArm = pros::ADIDigitalOut(BACK_ARM_PORT, false);
 pros::ADIDigitalOut gearChange = pros::ADIDigitalOut(GEAR_CHANGE_PORT, false);
 

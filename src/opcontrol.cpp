@@ -23,6 +23,8 @@ double analogToVoltage(double analog, double maxVoltage = VOLTAGE_LIMIT) {
 
 void opcontrol() {
     bool gearChangeExtended = true;
+    bool frontHandClosed = false;
+    bool backHandClosed = false;
     double power, turn, left, right;
     pros::lcd::set_text(1, "Manual Control");
     pros::lcd::clear_line(2);
@@ -59,15 +61,30 @@ void opcontrol() {
             rightWheels.setBrakeMode(okapi::AbstractMotor::brakeMode::coast);
         }
 
-        if (ringIntakeButton.changedToPressed()){
-            if(ringIntake.isStopped()) ringIntake.moveVoltage(VOLTAGE_LIMIT);
+        if (ringIntakeButton.changedToPressed()) {
+            if (ringIntake.isStopped()) ringIntake.moveVoltage(VOLTAGE_LIMIT);
             else ringIntake.moveVelocity(0);
         }
 
-        if (gearChangeButton.changedToPressed()){
-                gearChange.set_value(gearChangeExtended);
-                gearChangeExtended = !gearChangeExtended;
+        if (gearChangeButton.changedToPressed()) {
+            gearChange.set_value(gearChangeExtended);
+            gearChangeExtended = !gearChangeExtended;
         }
+
+        if (frontWristUpButton.isPressed()) frontWrist.set_value(true);
+        if (frontWristDownButton.isPressed()) frontWrist.set_value(false);
+
+        if (backWristUpButton.isPressed()) backWrist.moveVoltage(VOLTAGE_LIMIT);
+        if (backWristDownButton.isPressed()) backWrist.moveVoltage(-1 * VOLTAGE_LIMIT);
+
+        if (frontHandButton.changedToPressed()) {
+            frontHand.set_value(frontHandClosed);
+            frontHandClosed = !frontHandClosed;
+        }
+
+        if (frontWristUpButton.isPressed()) frontWrist.set_value(true);
+        if (frontWristDownButton.isPressed()) frontWrist.set_value(false);
+
 
         leftWheels.moveVoltage(analogToVoltage(left));
         rightWheels.moveVoltage(analogToVoltage(right));
