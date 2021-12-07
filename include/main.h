@@ -72,6 +72,7 @@ void disabled(void);
 void competition_initialize(void);
 void opcontrol(void); // operator control
 extern MotorGroup leftWheels, rightWheels;
+extern pros::ADIDigitalOut frontHand, frontWrist, backHand, backArm, gearChange;
 extern Controller controller; // main controller
 extern std::shared_ptr<ChassisController> drive; // chassis
 extern std::shared_ptr<AsyncMotionProfileController> path_gen; //path generator

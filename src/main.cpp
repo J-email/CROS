@@ -23,3 +23,6 @@ Controller controller;
 // Vision
 pros::Vision vision(VISION_PORT);
 
+// Pneumatics
+pros::ADIDigitalOut frontHand = pros::ADIDigitalOut(FRONT_HAND, false);
+

@@ -29,11 +29,11 @@
 // Sensors
 #define VISION_PORT 5
 
-//pneumatics
+// Pneumatics
+#define FRONT_HAND 1
+#define FRONT_WRIST
 #define BACK_HAND
 #define BACK_ARM
-#define FRONT_HAND
-#define FRONT_WRIST
-#define SPEED_CHANGE
-//R2 ring
-//L: BACK ARM
+#define GEAR_CHANGE
+// R2 ring
+// L: BACK ARM
