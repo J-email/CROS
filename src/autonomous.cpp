@@ -1,20 +1,25 @@
 #include "main.h"
+
 // cVarious definitions of autonomous modes.
-void blue_left_auto(){
+void blue_left_auto() {
 // Move 1 meter to the first goal
     drive->moveDistance(1_m);
 // Turn 90 degrees to face second goal
 //    drive->turnAngle(90_deg);
 }
-void blue_right_auto(){
+
+void blue_right_auto() {
 
 }
-void red_left_auto(){
+
+void red_left_auto() {
 
 }
-void red_right_auto(){
+
+void red_right_auto() {
 
 }
+
 /**
  * Runs the user autonomous code. This function will be started in its own task
  * with the default priority and stack size whenever the robot is enabled via
@@ -28,25 +33,25 @@ void red_right_auto(){
  */
 void autonomous() {
     pros::lcd::set_text(1, "Autonomous");
-    switch(AUTONOMOUS_MODE){
-    case 0:
-      pros::lcd::set_text(2, "BLUE LEFT");
-      blue_left_auto();
-      break;
-    case 1:
-      pros::lcd::set_text(2, "BLUE RIGHT");
-      blue_right_auto();
-      break;
-    case 2:
-      pros::lcd::set_text(2, "RED LEFT");
-      red_left_auto();
-      break;
-    case 3:
-      pros::lcd::set_text(2, "RED RIGHT");
-      red_right_auto();
-      break;
-    default:
-      pros::lcd::set_text(2, "UNKNOWN AUTONOMOUS MODE");
-      break;
-  }
+    switch (AUTONOMOUS_MODE) {
+        case 0:
+            pros::lcd::set_text(2, "BLUE LEFT");
+            blue_left_auto();
+            break;
+        case 1:
+            pros::lcd::set_text(2, "BLUE RIGHT");
+            blue_right_auto();
+            break;
+        case 2:
+            pros::lcd::set_text(2, "RED LEFT");
+            red_left_auto();
+            break;
+        case 3:
+            pros::lcd::set_text(2, "RED RIGHT");
+            red_right_auto();
+            break;
+        default:
+            pros::lcd::set_text(2, "UNKNOWN AUTONOMOUS MODE");
+            break;
+    }
 }
