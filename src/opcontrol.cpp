@@ -25,22 +25,23 @@ void opcontrol() {
     bool gearChangeExtended = true;
     bool frontHandClosed = false;
     bool backHandClosed = false;
+    bool backArmLifted = false;
     double power, turn, left, right;
     pros::lcd::set_text(1, "Manual Control");
     controller.setText(1, 0, "");
 
-    ControllerButton brakeButton(ControllerDigital::L1);
-    ControllerButton gearChangeButton(ControllerDigital::L1);
-    ControllerButton ringIntakeButton(ControllerDigital::X);
+    ControllerButton brakeButton(ControllerDigital::right);
+    ControllerButton gearChangeButton(ControllerDigital::Y);
+    ControllerButton ringIntakeButton(ControllerDigital::down);
 
-    ControllerButton frontHandButton(ControllerDigital::L1);
-    ControllerButton frontWristUpButton(ControllerDigital::L1);
-    ControllerButton frontWristDownButton(ControllerDigital::L1);
+    ControllerButton frontHandButton(ControllerDigital::up);
+    ControllerButton frontWristUpButton(ControllerDigital::R1);
+    ControllerButton frontWristDownButton(ControllerDigital::R2);
 
-    ControllerButton backHandButton(ControllerDigital::L1);
+    ControllerButton backHandButton(ControllerDigital::X);
     ControllerButton backWristUpButton(ControllerDigital::L1);
-    ControllerButton backWristDownButton(ControllerDigital::L1);
-    ControllerButton backArmButton(ControllerDigital::L1);
+    ControllerButton backWristDownButton(ControllerDigital::L2);
+    ControllerButton backArmButton(ControllerDigital::left);
 
     leftWheels.setCurrentLimit(CURRENT_LIMIT);
     rightWheels.setCurrentLimit(CURRENT_LIMIT);
@@ -70,12 +71,6 @@ void opcontrol() {
             gearChange.set_value(gearChangeExtended);
         }
 
-        if (frontWristUpButton.isPressed()) frontWrist.set_value(true);
-        else if (frontWristDownButton.isPressed()) frontWrist.set_value(false);
-
-        if (backWristUpButton.isPressed()) backWrist.moveVoltage(VOLTAGE_LIMIT);
-        else if (backWristDownButton.isPressed()) backWrist.moveVoltage(-1 * VOLTAGE_LIMIT);
-
         if (frontHandButton.changedToPressed()) {
             frontHandClosed = !frontHandClosed;
             frontHand.set_value(frontHandClosed);
@@ -88,6 +83,15 @@ void opcontrol() {
             backHandClosed = !backHandClosed;
             backHand.set_value(backHandClosed);
         }
+
+        if (backWristUpButton.isPressed()) backWrist.moveVoltage(VOLTAGE_LIMIT);
+        else if (backWristDownButton.isPressed()) backWrist.moveVoltage(-1 * VOLTAGE_LIMIT);
+
+        if (backArmButton.changedToPressed()){
+            backArmLifted = !backArmLifted;
+            backArm.set_value(backArmLifted);
+        }
+
         leftWheels.moveVoltage(analogToVoltage(left));
         rightWheels.moveVoltage(analogToVoltage(right));
         pros::delay(2);
