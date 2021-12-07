@@ -15,6 +15,10 @@ void blue_right_auto() {
 }
 
 void red_left_auto() {
+
+}
+
+void red_right_auto() {
     // Move forward to the goal
     drive->driveToPoint({0_ft, 6_ft});
     // Grab
@@ -37,10 +41,6 @@ void red_left_auto() {
     frontHand.set_value(true);
     // place down all of them
     drive->driveToPoint({2_ft, 2_ft}, true);
-}
-
-void red_right_auto() {
-
 }
 
 /**
