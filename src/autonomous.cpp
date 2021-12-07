@@ -11,7 +11,28 @@ void blue_left_auto() {
 }
 
 void blue_right_auto() {
-
+    // Move forward to the goal
+    drive->driveToPoint({0_ft, 6_ft});
+    // Grab
+    frontHand.set_value(true);
+    // Go back
+    backArm.set_value(true);
+    drive->driveToPoint({0_ft, 3_ft}, true);
+    // Turn & drop the goal
+    drive->turnToPoint({-6_ft, 0_ft});
+    frontHand.set_value(false);
+    // Turn back
+    drive->turnToPoint({-6_ft, 6_ft});
+    // Grab the red one
+    backArm.set_value(true);
+    // Spit rings
+    ringIntake.moveVoltage(VOLTAGE_LIMIT);
+    // while doing that, go forward, grab middle goal
+    drive->driveToPoint({-6_ft, 6_ft});
+    // Grab
+    frontHand.set_value(true);
+    // place down all of them
+    drive->driveToPoint({2_ft, 2_ft}, true);
 }
 
 void red_left_auto() {
